@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="cu.lt.joe.mc.lyrics.activities.AlbumsActivity" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/albums_menu_picture"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                android:foregroundColor="@{activity.foregroundColor}"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/mc_logo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_card_drawable"
+                android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundColor="@{activity.foregroundColor}"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="3dp"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        app:srcCompat="@drawable/ic_info" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@string/version_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick='@{v -> activity.openExternalLink("https://github.com/jr20xx/Mariah-Carey-Lyrics")}'
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="3dp"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        app:srcCompat="@drawable/ic_github" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@string/view_code_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_card_drawable"
+                android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundColor="@{activity.foregroundColor}"
+                    android:gravity="center"
+                    android:text="@string/data_sources_label"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick='@{v -> activity.openExternalLink("https://en.wikipedia.org/wiki/Mariah_Carey#Discography")}'
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="3dp"
+                            android:foregroundColor="@{activity.foregroundColor}"
+                            app:srcCompat="@drawable/ic_wikipedia" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:foregroundColor="@{activity.foregroundColor}"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/wikipedia_label"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:text="@string/wikipedia_description_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick='@{v -> activity.openExternalLink("https://www.deviantart.com/capsvini/art/Mariah-Carey-Font-Pack-502337681")}'
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="3dp"
+                            android:foregroundColor="@{activity.foregroundColor}"
+                            app:srcCompat="@drawable/ic_deviantart" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:foregroundColor="@{activity.foregroundColor}"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/deviantart_label"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:text="@string/deviantart_description_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_card_drawable"
+                    android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundColor="@{activity.foregroundColor}"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:onClick="@{v -> activity.showGeneralInfoDialog()}"
+                    android:padding="8dp"
+                    android:text="@string/label_more"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_card_drawable"
+                android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:foregroundColor="@{activity.cardForegroundColor}"
+                    android:gravity="center"
+                    android:text="@string/follow_mc_label"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:onClick='@{v -> activity.openExternalLink("https://www.facebook.com/mariahcarey")}'
+                        app:srcCompat="@drawable/ic_facebook" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:onClick='@{v -> activity.openExternalLink("https://www.twitter.com/mariahcarey")}'
+                        app:srcCompat="@drawable/ic_twitter" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1.0"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foregroundColor="@{activity.foregroundColor}"
+                        android:onClick='@{v -> activity.openExternalLink("https://www.youtube.com/mariahcarey")}'
+                        app:srcCompat="@drawable/ic_youtube" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="cu.lt.joe.mc.lyrics.activities.SongsActivity" />
+
+        <variable
+            name="album"
+            type="cu.lt.joe.mc.lyrics.models.Album" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/album_info_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/rounded_card_drawable"
+            android:cardBackgroundColor="@{activity.cardBackgroundTintColor}"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@{album.albumDrawableResourceId}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundColor="@{activity.cardForegroundColor}"
+                android:gravity="center"
+                android:text="@{album.title}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundColor="@{activity.cardForegroundColor}"
+                android:gravity="center"
+                android:text="@{album.recording_label}"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundColor="@{activity.cardForegroundColor}"
+                android:gravity="center"
+                android:text="@{album.year}"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/songs_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundColor="@{activity.cardForegroundColor}"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/rounded_card_drawable"
+                    android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick="@{v -> activity.openExternalLink(album.wikiLink)}"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        app:srcCompat="@drawable/ic_wikipedia" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:padding="3dp"
+                        android:text="@string/wikipedia_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/rounded_card_drawable"
+                    android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick='@{v -> activity.openExternalLink(cu.lt.joe.mc.lyrics.utils.Utils.getGoogleSearchLink(album.title, "Mariah Carey","album"))}'
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        app:srcCompat="@drawable/ic_google" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:padding="3dp"
+                        android:text="@string/google_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

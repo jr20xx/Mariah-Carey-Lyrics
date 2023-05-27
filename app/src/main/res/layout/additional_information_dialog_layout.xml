@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="cu.lt.joe.mc.lyrics.activities.BaseActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_card_drawable"
+        android:backgroundColor="@{activity.actionBarTintColor}"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:foregroundColor="@{activity.foregroundColor}"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/information_label"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:fillViewport="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundColor="@{activity.foregroundColor}"
+                android:text='@string/information_dialog_body_text'
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/aidl_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:foregroundColor="@{activity.foregroundColor}"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:text="@android:string/ok"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold" />
+    </LinearLayout>
+</layout>

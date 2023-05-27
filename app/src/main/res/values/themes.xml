@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="Theme.AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/icone_lt</item>
+    </style>
+
+    <style name="Theme.SplashActivity" parent="Theme.SplashScreen.IconBackground">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="windowSplashScreenAnimationDuration">10000</item>
+        <item name="postSplashScreenTheme">@style/Theme.AppTheme</item>
+    </style>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="albums_activity_label">Álbumes</string>
+    <string name="songs_count_end_label">%d canciones</string>
+    <string name="information_label">Información</string>
+    <string name="information_dialog_body_text">This application was made with the primary purpose of collecting the lyrics of the songs contained in the studio albums released by one of the most successful artists of all times, inducted by the Songwriters Hall of Fame in the year 2022, Mariah Carey. There is no copyright infringement intended with the realization of this app and that is why the names of the recording studios in charge of the production of every album and the names of the authors of the songs (according to Wikipedia and/or Google) can be found in the information menu of the albums or the songs.\n\nThe links provided by this app to the songs listed in here were found during a quick search on YouTube and not all of them were extracted from the official channel of Mariah Carey.\n\nThis app comes with no warranty and it is distributed as is. You are the only responsible of the use you make of this application and its author will not take any responsibilities for any kind of damage caused by its usage. This app and its creator have no relation with any of the video publishers, the authors of the songs or any of the recording labels hereby listed. This application does not collect any kind of personal information of its users. You can also collaborate with the development of this project because it is open sourced and hosted in GitHub.\n\n;) enjoy the app!</string>
+    <string name="version_label">Versión 1.0</string>
+    <string name="view_code_label">Ver el código fuente</string>
+    <string name="data_sources_label">Orígenes de datos</string>
+    <string name="wikipedia_label">Wikipedia</string>
+    <string name="wikipedia_description_label">Aquí podrá encontrar todos los datos sobre los álbumes utilizados para realizar esta aplicación</string>
+    <string name="deviantart_label">Deviantart</string>
+    <string name="deviantart_description_label">Aquí podrá encontrar la fuente y el icónico logo de Mariah Carey utilizados en esta aplicación</string>
+    <string name="label_more">Más</string>
+    <string name="follow_mc_label">Seguir a Mariah Carey</string>
+    <string name="play_label">Reproducir</string>
+    <string name="google_label">Google</string>
+</resources>

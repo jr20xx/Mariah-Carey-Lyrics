@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="album"
+            type="cu.lt.joe.mc.lyrics.models.Album" />
+
+        <variable
+            name="song"
+            type="cu.lt.joe.mc.lyrics.models.Song" />
+
+        <variable
+            name="activity"
+            type="cu.lt.joe.mc.lyrics.activities.BaseActivity" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/lyrics_background_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_card_drawable"
+            android:backgroundColor="@{activity.cardBackgroundTintColor}"
+            android:fillViewport="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundColor="@{activity.cardForegroundColor}"
+                android:paddingStart="8dp"
+                android:paddingTop="66dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                android:text="@{song.lyrics}"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/rounded_action_bar_drawable"
+            android:backgroundColor="@{activity.actionBarTintColor}"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:foregroundColor="@{activity.foregroundColor}"
+                android:onClick="@{(view) -> activity.onBackPressed()}"
+                android:src="@drawable/ic_navigate_back"
+                android:visibility="@{activity.navigateToHome ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:foregroundColor="@{activity.foregroundColor}"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="@{song.title}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/menu_expander_item"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:foregroundColor="@{activity.foregroundColor}"
+                android:onClick="@{(view) -> activity.onMenuExpanderClick(view)}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_menu_icon" />
+        </LinearLayout>
+
+        <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+            android:id="@+id/lyrics_menu_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/rounded_card_drawable"
+                android:cardBackgroundColor="@{activity.cardBackgroundTintColor}"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:src="@{album.albumDrawableResourceId}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foregroundColor="@{activity.cardForegroundColor}"
+                    android:gravity="center"
+                    android:text="@{song.title}"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foregroundColor="@{activity.cardForegroundColor}"
+                    android:gravity="center"
+                    android:text="@{song.writers}"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/rounded_card_drawable"
+                    android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                    android:gravity="center"
+                    android:onClick="@{v -> activity.openExternalLink(song.ytLink)}"
+                    android:paddingStart="16dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        app:srcCompat="@drawable/ic_youtube" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="@string/play_label"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="album"
+            type="cu.lt.joe.mc.lyrics.models.Album" />
+
+        <variable
+            name="activity"
+            type="cu.lt.joe.mc.lyrics.activities.BaseActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_card_drawable"
+        android:cardBackgroundColor="@{activity.cardBackgroundTintColor}"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/album_item_iv"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:lines="1"
+            android:roundSrc="@{album.albumDrawableResourceId}" />
+
+        <TextView
+            android:id="@+id/album_item_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@id/album_item_iv"
+            android:foregroundColor="@{activity.foregroundColor}"
+            android:maxLines="1"
+            android:text="@{album.title}"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/album_item_recording_label_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/album_item_title_tv"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@id/album_item_iv"
+            android:foregroundColor="@{activity.foregroundColor}"
+            android:maxLines="1"
+            android:text="@{album.recording_label}"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/album_item_year_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/album_item_title_tv"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/album_item_recording_label_tv"
+            android:foregroundColor="@{activity.foregroundColor}"
+            android:gravity="end"
+            android:maxLines="1"
+            android:text="@{album.year}"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </RelativeLayout>
+</layout>
