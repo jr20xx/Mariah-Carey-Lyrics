@@ -42,7 +42,7 @@
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@id/song_item_iv"
             android:foregroundColor="@{activity.cardForegroundColor}"
-            android:maxLines="1"
+            android:singleLine="true"
             android:text="@{song.title}"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 

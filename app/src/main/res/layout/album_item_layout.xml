@@ -42,7 +42,7 @@
             android:layout_marginBottom="3dp"
             android:layout_toEndOf="@id/album_item_iv"
             android:foregroundColor="@{activity.foregroundColor}"
-            android:maxLines="1"
+            android:singleLine="true"
             android:text="@{album.title}"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold" />
@@ -55,7 +55,7 @@
             android:layout_marginEnd="5dp"
             android:layout_toEndOf="@id/album_item_iv"
             android:foregroundColor="@{activity.foregroundColor}"
-            android:maxLines="1"
+            android:singleLine="true"
             android:text="@{album.recording_label}"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -68,7 +68,7 @@
             android:layout_toEndOf="@id/album_item_recording_label_tv"
             android:foregroundColor="@{activity.foregroundColor}"
             android:gravity="end"
-            android:maxLines="1"
+            android:singleLine="true"
             android:text="@{album.year}"
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
