@@ -34,6 +34,9 @@ android {
         includeInApk false
         includeInBundle false
     }
+    lintOptions {
+        lintConfig = file("$rootDir/android-lint.xml")
+    }
 
     dataBinding.enabled = true
     viewBinding.enabled = true
