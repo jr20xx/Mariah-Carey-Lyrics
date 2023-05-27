@@ -53,13 +53,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:foregroundColor="@{activity.foregroundColor}"
                 android:gravity="center_vertical"
-                android:maxLines="1"
+                android:marqueeRepeatLimit="marquee_forever"
                 android:padding="8dp"
+                android:singleLine="true"
                 android:text="@{activity.title}"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                android:textStyle="bold">
+
+                <requestFocus />
+            </TextView>
 
             <ImageView
                 android:id="@+id/menu_expander_item"
