@@ -28,7 +28,7 @@ public class AlbumsActivity extends ListActivity
         setBackground(backgroundResId, 0.5f, 8);
         Palette palette = getPalette();
         int dominantColorFullAlpha = palette.getDominantColor(Color.BLACK),
-                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, 150),
+                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE),
                 foregroundColor = ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5 ? Color.WHITE : Color.BLACK;
         getWindow().setStatusBarColor(dominantColorFullAlpha);
         getWindow().setNavigationBarColor(dominantColorFullAlpha);

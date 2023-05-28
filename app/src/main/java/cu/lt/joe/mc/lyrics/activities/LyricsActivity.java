@@ -38,7 +38,7 @@ public class LyricsActivity extends BaseActivity
         Glide.with(this).load(Utils.getBlurredBitmap(this, backgroundBitmap, 0.9f, 7)).placeholder(resourceId).centerCrop().into(binding.lyricsBackgroundIv);
         Palette palette = Palette.from(backgroundBitmap).generate();
         int dominantColorFullAlpha = palette.getDominantColor(Color.BLACK),
-                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, 150),
+                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE),
                 foregroundColor = ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5 ? Color.WHITE : Color.BLACK;
         getWindow().setStatusBarColor(dominantColorFullAlpha);
         getWindow().setNavigationBarColor(dominantColorFullAlpha);

@@ -15,6 +15,7 @@ import cu.lt.joe.mc.lyrics.databinding.AdditionalInformationDialogLayoutBinding;
 
 public class BaseActivity extends AppCompatActivity
 {
+    public final static int ALPHA_VALUE = 150;
     private int actionBarTintColor, foregroundColor, cardForegroundColor, cardBackgroundTintColor;
     private boolean navigateToHome;
 
