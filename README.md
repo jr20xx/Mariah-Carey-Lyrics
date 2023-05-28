@@ -26,8 +26,6 @@ Next, clone this repo by executing the next command in a terminal session:<br>
 
 After that, you can just open the project on Android Studio and you'll be then ready to build the application by yourself with it.
 
-To build the project and get an APK file online, this repo includes GitHub workflows designed to build an APK file for you but without any signature. This means that you'll be able to build your own APK file online by using the workflows inside this repository, but none of the generated application files would be signed; which means that they won't be ready to install out of the box. To install the generated APK files, you must sign them first by your own or Android will deny their install. To get your APK file from here, just go to the workflows section of this repository, pick the right workflow by reading its name and run it. When the execution is finished, the resultant files will be attached at the bottom of the details of the workflow run in the section for the generated artifacts.
-
 ## How to contribute to this project?
 This project uses an embeded SQLite3 database to store the data showed by the application. That database is located in the `assets` folder inside of the application sources and contains two tables to hold the information: the ```ALBUMS_TABLE``` and the ```SONGS_TABLE```. The ```ALBUMS_TABLE``` contains the next columns:<br>
 **ID**: to identify every stored album;<br>
