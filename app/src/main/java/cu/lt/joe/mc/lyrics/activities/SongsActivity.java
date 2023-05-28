@@ -24,7 +24,7 @@ public class SongsActivity extends ListActivity
         setBackground(album.getAlbumDrawableResourceId(), 0.9f, 5.8f);
         Palette palette = getPalette();
         int dominantColorFullAlpha = palette.getDominantColor(Color.BLACK),
-                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, 148),
+                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, 150),
                 foregroundColor = ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5 ? Color.WHITE : Color.BLACK;
         getWindow().setStatusBarColor(dominantColorFullAlpha);
         getWindow().setNavigationBarColor(dominantColorFullAlpha);
