@@ -24,7 +24,7 @@ public class AlbumsActivity extends ListActivity
         SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setTitle(R.string.albums_activity_label);
-        int backgroundResId = R.drawable.hall;
+        int backgroundResId = R.drawable.lovers;
         setBackground(backgroundResId, 0.5f, 8);
         Palette palette = getPalette();
         int dominantColorFullAlpha = palette.getDominantColor(Color.BLACK),
