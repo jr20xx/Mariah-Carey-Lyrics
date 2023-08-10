@@ -11,30 +11,36 @@ The application and the project come with no warranty and they are distributed "
 **This is currently a work in progress and the resultant application is not ready for a day by day use or to be published in any store.**
 
 ## How to build this project?
-This project was built using Android Studio Electric Eel under Debian 12; but you can build it online also by using the GitHub workflows included in this repository.
+This project was built using Android Studio Flamingo under Debian 12.
 
-To build this project locally and get an APK file by yourself, first make sure that you have at least the version 11 of the Java Development Kit installed on your computer by executing the next command:<br>
-`java -version`
+To build this project locally and get an APK file by yourself, first make sure that you have at least the version 11 of the Java Development Kit installed on your computer by executing the command:
+```
+java -version
+```
 
 The resultant output should be something like:<br>
-`openjdk version "17.0.6" 2023-01-17`<br>
-`OpenJDK Runtime Environment (build 17.0.6+10-Debian-1)`<br>
-`OpenJDK 64-Bit Server VM (build 17.0.6+10-Debian-1, mixed mode, sharing)`<br>
+```
+openjdk version "17.0.6" 2023-01-17
+OpenJDK Runtime Environment (build 17.0.6+10-Debian-1)
+OpenJDK 64-Bit Server VM (build 17.0.6+10-Debian-1, mixed mode, sharing)
+```
 
-Next, clone this repo by executing the next command in a terminal session:<br>
-`git clone https://github.com/jr20xx/Mariah-Carey-Lyrics`
+Next, clone this repo by executing:
+```
+git clone https://github.com/jr20xx/Mariah-Carey-Lyrics
+```
 
 After that, you can just open the project on Android Studio and you'll be then ready to build the application by yourself with it.
 
 ## How to contribute to this project?
-This project uses an embeded SQLite3 database to store the data showed by the application. That database is located in the `assets` folder inside of the application sources and contains two tables to hold the information: the ```ALBUMS_TABLE``` and the ```SONGS_TABLE```. The ```ALBUMS_TABLE``` contains the next columns:<br>
+This project uses an embeded SQLite3 database to store the data showed by the application. That database is located in the `assets` folder inside of the application sources and contains two tables to hold the information: the `ALBUMS_TABLE` and the `SONGS_TABLE`. The `ALBUMS_TABLE` contains the next columns:<br>
 **ID**: to identify every stored album;<br>
 **ALBUM_TITLE**: to store the title of an album;<br>
 **YEAR**: to store the year of the launch of the album;<br>
 **RECORDING_LABEL**: to store the name of the recording studio behind the production and release of an album; and<br>
 **WIKIPEDIA_LINK**: to store the link of the Wikipedia article about an album.
 
-The ```SONGS_TABLE```, in the other hand, contains the following columns:<br>
+The `SONGS_TABLE`, in the other hand, contains the following columns:<br>
 **ID**: to identify every stored song;<br>
 **ALBUM_ID**: to establish the link between a song and an album;<br>
 **TITLE**: to store the title of a song;<br>
@@ -42,9 +48,31 @@ The ```SONGS_TABLE```, in the other hand, contains the following columns:<br>
 **WRITERS**: to store the names of the writers of a song; and<br>
 **YT_LINK**: to store the link of a YouTube video where you can play a song.
 
-In the future, the final structure of the database will contain an extra table with information about its current version that will help to improve the control when the application is executed for the first time after installing or after an update. The current structure of the tables inside of the database is the aforementioned. To add data to it and if you use Linux, you can use the `sqlitebrowser` package tool on Debian or its derivates. You can install that package by executing:<br>
-`sudo apt install sqlite3 sqlitebrowser`
+In the future, the final structure of the database may contain an extra table with information about its current version that will help to improve the control when the application is executed for the first time after installing or after an update. The current structure of the tables inside of the database is the aforementioned. To add data to it and if you use Linux, you can use the `sqlitebrowser` package tool on Debian or its derivates. You can install that package by executing:<br>
+```
+sudo apt install sqlite3 sqlitebrowser
+```
 
-To contribute with the development of this project, just create pull request and make sure that you have followed the aforementioned instructions to understand how the database must be filled. Please also make sure to provide good descriptions of the jobs you have done.
+To contribute with the development of this project, just create a pull request and make sure that you have followed the aforementioned instructions to understand how the database must be filled. Please also make sure to provide good descriptions of the jobs you have done.
 
 Thanks for your visit and, if you think that this project worth it, please spread its link and star it!
+
+## Example screenshots
+
+##### Main activity
+![main-activity](/screenshots/main.png?raw=true)
+
+##### About app menu
+![about-app](/screenshots/main_info.png?raw=true)
+
+##### Album activity example
+![mc-activity](/screenshots/mc.png?raw=true)
+
+##### Album information menu example
+![album-info](/screenshots/mc_album_info.png?raw=true)
+
+##### Lyrics activity example
+![lyrics-activity](/screenshots/mc_lyrics.png?raw=true)
+
+##### Song info example
+![song-info](/screenshots/mc_song_info.png?raw=true)
