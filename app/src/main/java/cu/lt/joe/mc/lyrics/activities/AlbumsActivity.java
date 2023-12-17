@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.splashscreen.SplashScreen;
 import androidx.palette.graphics.Palette;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,7 +20,6 @@ public class AlbumsActivity extends ListActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setTitle(R.string.albums_activity_label);
         int backgroundResId = R.drawable.lovers;

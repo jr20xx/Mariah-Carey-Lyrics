@@ -17,8 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.AlbumsActivity"
-            android:exported="true"
-            android:theme="@style/Theme.SplashActivity">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
