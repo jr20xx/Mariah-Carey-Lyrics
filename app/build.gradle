@@ -5,7 +5,6 @@ plugins {
 android {
     namespace 'cu.lt.joe.mc.lyrics'
     compileSdk 33
-    buildToolsVersion '31.0.0'
 
     defaultConfig {
         applicationId "cu.lt.joe.mc.lyrics"
