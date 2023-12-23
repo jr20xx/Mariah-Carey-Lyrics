@@ -15,4 +15,11 @@
     <string name="follow_mc_label">Seguir a Mariah Carey</string>
     <string name="play_label">Reproducir</string>
     <string name="google_label">Google</string>
+    <string name="checking_database_label">Verificando base de datos</string>
+    <string name="transferring_database_label">Transfiriendo base de datos</string>
+    <string name="database_transferred_label">Base de datos transferida</string>
+    <string name="checking_db_integrity_label">Verificando integridad de los datos</string>
+    <string name="replacing_database_label">Sustituyendo base de datos</string>
+    <string name="database_replaced_label">Base de datos reemplazada</string>
+    <string name="made_in_cuba_label">Hecho con ♡ en Cuba</string>
 </resources>
