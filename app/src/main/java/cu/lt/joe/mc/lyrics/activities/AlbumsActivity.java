@@ -11,7 +11,6 @@ import cu.lt.joe.mc.lyrics.db.MainDatabaseHandler;
 
 public class AlbumsActivity extends ListActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
