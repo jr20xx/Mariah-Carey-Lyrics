@@ -4,7 +4,7 @@ import android.animation.Animator;
 import androidx.annotation.NonNull;
 
 /**
- * Originally written by hanks.
+ * Originally written by <a href="https://github.com/hanks-zyh">Hanks</a> at <a href="https://github.com/hanks-zyh/HTextView">HTextView library repo</a>
  */
 public class DefaultAnimatorListener implements Animator.AnimatorListener
 {

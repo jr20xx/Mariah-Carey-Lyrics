@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Originally written by hanks.
+ * Originally written by <a href="https://github.com/hanks-zyh">Hanks</a> at <a href="https://github.com/hanks-zyh/HTextView">HTextView library repo</a>
  */
 public class CharacterUtils
 {

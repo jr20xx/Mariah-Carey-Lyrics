@@ -19,7 +19,7 @@ import java.util.List;
 import cu.lt.joe.mc.lyrics.utils.CharacterUtils;
 
 /**
- * Originally written by hanks.
+ * Originally written by <a href="https://github.com/hanks-zyh">Hanks</a> at <a href="https://github.com/hanks-zyh/HTextView">HTextView library repo</a>
  */
 public class EvaporateTextView extends AppCompatTextView
 {
