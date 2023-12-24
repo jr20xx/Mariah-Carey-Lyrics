@@ -1,11 +1,6 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:fontFamily">@font/icone_lt</item>
-    </style>
-
-    <style name="SplashScreen" parent="AppTheme">
-        <item name="android:fitsSystemWindows">true</item>
     </style>
 </resources>
