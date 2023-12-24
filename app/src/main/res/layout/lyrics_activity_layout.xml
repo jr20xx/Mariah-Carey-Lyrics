@@ -112,68 +112,76 @@
             android:padding="8dp"
             android:visibility="gone">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="316dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@drawable/rounded_card_drawable"
-                android:cardBackgroundColor="@{activity.cardBackgroundTintColor}"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:src="@{album.albumDrawableResourceId}" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foregroundColor="@{activity.cardForegroundColor}"
-                    android:gravity="center"
-                    android:text="@{song.title}"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foregroundColor="@{activity.cardForegroundColor}"
-                    android:gravity="center"
-                    android:text="@{song.writers}"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:cardBackgroundColor="@{activity.cardBackgroundTintColor}">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:background="@drawable/rounded_card_drawable"
-                    android:backgroundColor="@{activity.cardBackgroundTintColor}"
                     android:gravity="center"
-                    android:onClick="@{v -> activity.openExternalLink(song.ytLink)}"
-                    android:paddingStart="16dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="5dp">
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="3dp"
-                        android:foregroundColor="@{activity.cardForegroundColor}"
-                        app:srcCompat="@drawable/ic_youtube" />
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@{album.albumDrawableResourceId}" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:foregroundColor="@{activity.cardForegroundColor}"
                         android:gravity="center"
-                        android:padding="3dp"
-                        android:text="@string/play_label"
+                        android:text="@{song.title}"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:foregroundColor="@{activity.cardForegroundColor}"
+                        android:gravity="center"
+                        android:text="@{song.writers}"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rounded_card_drawable"
+                        android:backgroundColor="@{activity.cardBackgroundTintColor}"
+                        android:gravity="center"
+                        android:onClick="@{v -> activity.openExternalLink(song.ytLink)}"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="3dp"
+                            android:foregroundColor="@{activity.cardForegroundColor}"
+                            app:srcCompat="@drawable/ic_youtube" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:foregroundColor="@{activity.cardForegroundColor}"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/play_label"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
         </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
     </RelativeLayout>
 </layout>
