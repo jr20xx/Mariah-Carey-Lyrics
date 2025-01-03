@@ -1,84 +1,60 @@
-package cu.lt.joe.mc.lyrics.models;
+package cu.lt.joe.mc.lyrics.models
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import androidx.annotation.NonNull;
+import android.os.Parcel
+import android.os.Parcelable
+import android.os.Parcelable.Creator
 
-public class Song implements Parcelable
-{
-    public static final Creator<Song> CREATOR = new Creator<>()
-    {
-        @Override
-        public Song createFromParcel(Parcel in)
-        {
-            return new Song(in);
+class Song : Parcelable {
+    val SONG_ID: Long
+
+    @JvmField
+    val title: String?
+
+    @JvmField
+    val lyrics: String?
+
+    @JvmField
+    val writers: String?
+    val ytLink: String?
+
+    constructor(SONG_ID: Long, title: String?, lyrics: String?, writers: String?, yt_link: String?) {
+        this.SONG_ID = SONG_ID
+        this.title = title
+        this.lyrics = lyrics
+        this.writers = writers
+        ytLink = yt_link
+    }
+
+    protected constructor(`in`: Parcel) {
+        SONG_ID = `in`.readLong()
+        title = `in`.readString()
+        lyrics = `in`.readString()
+        writers = `in`.readString()
+        ytLink = `in`.readString()
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        dest.writeLong(SONG_ID)
+        dest.writeString(title)
+        dest.writeString(lyrics)
+        dest.writeString(writers)
+        dest.writeString(ytLink)
+    }
+
+    companion object {
+        @JvmField
+        val CREATOR: Creator<Song> = object : Creator<Song> {
+            override fun createFromParcel(`in`: Parcel): Song {
+                return Song(`in`)
+            }
+
+            override fun newArray(size: Int): Array<Song?> {
+                return arrayOfNulls(size)
+            }
         }
-
-        @Override
-        public Song[] newArray(int size)
-        {
-            return new Song[size];
-        }
-    };
-    private final Long SONG_ID;
-    private final String title, lyrics, writers, yt_link;
-
-    public Song(Long SONG_ID, String title, String lyrics, String writers, String yt_link)
-    {
-        this.SONG_ID = SONG_ID;
-        this.title = title;
-        this.lyrics = lyrics;
-        this.writers = writers;
-        this.yt_link = yt_link;
-    }
-
-    protected Song(Parcel in)
-    {
-        SONG_ID = in.readLong();
-        title = in.readString();
-        lyrics = in.readString();
-        writers = in.readString();
-        yt_link = in.readString();
-    }
-
-    public Long getSongID()
-    {
-        return SONG_ID;
-    }
-
-    public String getTitle()
-    {
-        return title;
-    }
-
-    public String getLyrics()
-    {
-        return lyrics;
-    }
-
-    public String getWriters()
-    {
-        return writers;
-    }
-
-    public String getYtLink()
-    {
-        return yt_link;
-    }
-
-    @Override
-    public int describeContents()
-    {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags)
-    {
-        dest.writeLong(SONG_ID);
-        dest.writeString(title);
-        dest.writeString(lyrics);
-        dest.writeString(writers);
-        dest.writeString(yt_link);
     }
 }
