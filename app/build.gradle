@@ -4,17 +4,17 @@ plugins {
 
 android {
     namespace 'cu.lt.joe.mc.lyrics'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "cu.lt.joe.mc.lyrics"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
-        renderscriptTargetApi 33
+        renderscriptTargetApi 34
         renderscriptSupportModeEnabled true
     }
 
@@ -45,14 +45,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.palette:palette:1.0.0'
-    implementation 'androidx.preference:preference:1.2.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.lifecycle:lifecycle-livedata-core:2.5.1'
     implementation 'com.google.android.material:material:1.6.1'
-    implementation 'com.google.guava:guava:31.1-android'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
-    implementation 'com.airbnb.android:lottie:5.2.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 }
