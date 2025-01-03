@@ -110,7 +110,7 @@ public class BaseActivity extends AppCompatActivity
         {
             startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(link)));
         }
-        catch (Exception e)
+        catch (Exception ignored)
         {
         }
     }
