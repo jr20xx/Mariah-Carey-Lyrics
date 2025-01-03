@@ -1,113 +1,110 @@
-package cu.lt.joe.mc.lyrics.activities;
+package cu.lt.joe.mc.lyrics.activities
 
-import android.animation.Animator;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.View;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.ColorUtils;
-import androidx.databinding.DataBindingUtil;
-import androidx.palette.graphics.Palette;
-import com.bumptech.glide.Glide;
-import com.google.android.material.circularreveal.CircularRevealCompat;
-import java.util.Objects;
-import cu.lt.joe.mc.lyrics.R;
-import cu.lt.joe.mc.lyrics.databinding.LyricsActivityLayoutBinding;
-import cu.lt.joe.mc.lyrics.models.Album;
-import cu.lt.joe.mc.lyrics.models.Song;
-import cu.lt.joe.mc.lyrics.utils.Utils;
+import android.animation.Animator
+import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
+import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
+import androidx.databinding.DataBindingUtil
+import androidx.palette.graphics.Palette
+import com.bumptech.glide.Glide
+import com.google.android.material.circularreveal.CircularRevealCompat
+import cu.lt.joe.mc.lyrics.R
+import cu.lt.joe.mc.lyrics.databinding.LyricsActivityLayoutBinding
+import cu.lt.joe.mc.lyrics.models.Album
+import cu.lt.joe.mc.lyrics.models.Song
+import cu.lt.joe.mc.lyrics.utils.Utils
+import java.util.Objects
 
-public class LyricsActivity extends BaseActivity
-{
-    private LyricsActivityLayoutBinding binding;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.lyrics_activity_layout);
-        Album album = getIntent().getParcelableExtra("album");
-        Song song = getIntent().getParcelableExtra("song");
-        setTitle(song.getTitle());
-        int resourceId = album.getAlbumDrawableResourceId();
-        Bitmap backgroundBitmap = ((BitmapDrawable) Objects.requireNonNull(ContextCompat.getDrawable(this, resourceId))).getBitmap();
-        Glide.with(this).load(Utils.getBlurredBitmap(this, backgroundBitmap, 0.9f, 7)).placeholder(resourceId).centerCrop().into(binding.lyricsBackgroundIv);
-        Palette palette = Palette.from(backgroundBitmap).generate();
-        int dominantColorFullAlpha = palette.getDominantColor(Color.BLACK),
-                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE),
-                foregroundColor = ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5 ? Color.WHITE : Color.BLACK;
-        getWindow().setStatusBarColor(dominantColorFullAlpha);
-        getWindow().setNavigationBarColor(dominantColorFullAlpha);
-        setActionBarTintColor(dominantColorFullAlpha);
-        setForegroundColor(foregroundColor);
-        setCardBackgroundTintColor(dominantColorWithAlpha);
-        setCardForegroundColor(foregroundColor);
-        setNavigateToHome(true);
-        binding.setActivity(this);
-        binding.setSong(song);
-        binding.setAlbum(album);
+class LyricsActivity : BaseActivity() {
+    private lateinit var binding: LyricsActivityLayoutBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.lyrics_activity_layout)
+        val album = intent.getParcelableExtra<Album>("album")
+        val song = intent.getParcelableExtra<Song>("song")
+        title = song!!.title
+        val resourceId = album!!.albumDrawableResourceId
+        val backgroundBitmap = (Objects.requireNonNull(
+            ContextCompat.getDrawable(
+                this,
+                resourceId
+            )
+        ) as BitmapDrawable).bitmap
+        Glide.with(this).load(Utils.getBlurredBitmap(this, backgroundBitmap, 0.9f, 7f))
+            .placeholder(resourceId).centerCrop().into(binding.lyricsBackgroundIv)
+        val palette = Palette.from(backgroundBitmap).generate()
+        val dominantColorFullAlpha = palette.getDominantColor(Color.BLACK)
+        val dominantColorWithAlpha =
+            ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE)
+        val foregroundColor =
+            if (ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5) Color.WHITE else Color.BLACK
+        window.statusBarColor = dominantColorFullAlpha
+        window.navigationBarColor = dominantColorFullAlpha
+        actionBarTintColor = dominantColorFullAlpha
+        setForegroundColor(foregroundColor)
+        cardBackgroundTintColor = dominantColorWithAlpha
+        cardForegroundColor = foregroundColor
+        navigateToHome = true
+        binding.activity = this
+        binding.song = song
+        binding.album = album
     }
 
-    @Override
-    public void onMenuExpanderClick(View menuExpanderView)
-    {
-        super.onMenuExpanderClick(menuExpanderView);
-        binding.lyricsMenuContainer.setBackground(Utils.getBlurredDrawableFromView(binding.getRoot()));
-        DisplayMetrics dim = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dim);
-        int screenCenterX = (menuExpanderView.getLeft() + menuExpanderView.getRight()) / 2;
-        int screenCenterY = (menuExpanderView.getTop() + menuExpanderView.getBottom()) / 2;
-        float eStartRadius = 0;
-        float eEndRadius = (float) Math.hypot(dim.widthPixels, dim.heightPixels);
-        Animator expand = CircularRevealCompat.createCircularReveal(binding.lyricsMenuContainer, screenCenterX, screenCenterY, eStartRadius, eEndRadius);
-        expand.setDuration(300);
-        binding.lyricsMenuContainer.setVisibility(View.VISIBLE);
-        expand.start();
+    override fun onMenuExpanderClick(menuExpanderView: View) {
+        super.onMenuExpanderClick(menuExpanderView)
+        binding.lyricsMenuContainer.background = Utils.getBlurredDrawableFromView(binding.root)
+        val dim = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(dim)
+        val screenCenterX = (menuExpanderView.left + menuExpanderView.right) / 2
+        val screenCenterY = (menuExpanderView.top + menuExpanderView.bottom) / 2
+        val eStartRadius = 0f
+        val eEndRadius =
+            Math.hypot(dim.widthPixels.toDouble(), dim.heightPixels.toDouble()).toFloat()
+        val expand = CircularRevealCompat.createCircularReveal(
+            binding.lyricsMenuContainer,
+            screenCenterX.toFloat(),
+            screenCenterY.toFloat(),
+            eStartRadius,
+            eEndRadius
+        )
+        expand.duration = 300
+        binding.lyricsMenuContainer.visibility = View.VISIBLE
+        expand.start()
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        if (binding.lyricsMenuContainer.getVisibility() == View.VISIBLE)
-        {
-            DisplayMetrics dim = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(dim);
-            int screenCenterX = (binding.menuExpanderItem.getLeft() + binding.menuExpanderItem.getRight()) / 2;
-            int screenCenterY = (binding.menuExpanderItem.getTop() + binding.menuExpanderItem.getBottom()) / 2;
-            float eStartRadius = (float) Math.hypot(dim.widthPixels, dim.heightPixels);
-            float eEndRadius = 0;
-            Animator collapse = CircularRevealCompat.createCircularReveal(binding.lyricsMenuContainer, screenCenterX, screenCenterY, eStartRadius, eEndRadius);
-            collapse.setDuration(300);
-            collapse.addListener(new Animator.AnimatorListener()
-            {
-                @Override
-                public void onAnimationStart(Animator animator)
-                {
+    override fun onBackPressed() {
+        if (binding.lyricsMenuContainer.visibility == View.VISIBLE) {
+            val dim = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(dim)
+            val screenCenterX =
+                (binding.menuExpanderItem.left + binding.menuExpanderItem.right) / 2
+            val screenCenterY =
+                (binding.menuExpanderItem.top + binding.menuExpanderItem.bottom) / 2
+            val eStartRadius =
+                Math.hypot(dim.widthPixels.toDouble(), dim.heightPixels.toDouble()).toFloat()
+            val eEndRadius = 0f
+            val collapse = CircularRevealCompat.createCircularReveal(
+                binding.lyricsMenuContainer,
+                screenCenterX.toFloat(),
+                screenCenterY.toFloat(),
+                eStartRadius,
+                eEndRadius
+            )
+            collapse.duration = 300
+            collapse.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animator: Animator) {}
+                override fun onAnimationEnd(animator: Animator) {
+                    binding.lyricsMenuContainer.visibility = View.GONE
                 }
 
-                @Override
-                public void onAnimationEnd(Animator animator)
-                {
-                    binding.lyricsMenuContainer.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onAnimationCancel(Animator animator)
-                {
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animator)
-                {
-                }
-            });
-            collapse.start();
-        }
-        else
-            super.onBackPressed();
+                override fun onAnimationCancel(animator: Animator) {}
+                override fun onAnimationRepeat(animator: Animator) {}
+            })
+            collapse.start()
+        } else super.onBackPressed()
     }
 }
