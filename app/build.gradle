@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,7 +38,6 @@ android {
     lintOptions {
         lintConfig = file("$rootDir/android-lint.xml")
     }
-
     dataBinding.enabled = true
     viewBinding.enabled = true
 }
