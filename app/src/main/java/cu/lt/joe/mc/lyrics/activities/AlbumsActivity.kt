@@ -1,36 +1,33 @@
-package cu.lt.joe.mc.lyrics.activities;
+package cu.lt.joe.mc.lyrics.activities
 
-import android.graphics.Color;
-import android.os.Bundle;
-import androidx.core.graphics.ColorUtils;
-import androidx.palette.graphics.Palette;
-import cu.lt.joe.mc.lyrics.R;
-import cu.lt.joe.mc.lyrics.adapters.AlbumRecyclerAdapter;
-import cu.lt.joe.mc.lyrics.databinding.AlbumsActivityMenuLayoutBinding;
-import cu.lt.joe.mc.lyrics.db.MainDatabaseHandler;
+import android.graphics.Color
+import android.os.Bundle
+import androidx.core.graphics.ColorUtils
+import cu.lt.joe.mc.lyrics.R
+import cu.lt.joe.mc.lyrics.adapters.AlbumRecyclerAdapter
+import cu.lt.joe.mc.lyrics.databinding.AlbumsActivityMenuLayoutBinding
+import cu.lt.joe.mc.lyrics.db.MainDatabaseHandler
 
-public class AlbumsActivity extends ListActivity
-{
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setTitle(R.string.albums_activity_label);
-        int backgroundResId = R.drawable.lovers;
-        setBackground(backgroundResId, 0.5f, 8);
-        Palette palette = getPalette();
-        int dominantColorFullAlpha = palette.getDominantColor(Color.BLACK),
-                dominantColorWithAlpha = ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE),
-                foregroundColor = ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5 ? Color.WHITE : Color.BLACK;
-        getWindow().setStatusBarColor(dominantColorFullAlpha);
-        getWindow().setNavigationBarColor(dominantColorFullAlpha);
-        actionBarTintColor = dominantColorFullAlpha;
-        cardBackgroundTintColor = dominantColorWithAlpha;
-        cardForegroundColor = foregroundColor;
-        this.foregroundColor = foregroundColor;
-        MainDatabaseHandler mdh = new MainDatabaseHandler(this);
-        getList().setAdapter(new AlbumRecyclerAdapter(this, mdh.getAlbumsArray()));
-        AlbumsActivityMenuLayoutBinding menuBinding = getMenuLayoutBinding();
-        menuBinding.setActivity(this);
+class AlbumsActivity : ListActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setTitle(R.string.albums_activity_label)
+        val backgroundResId = R.drawable.lovers
+        setBackground(backgroundResId, 0.5f, 8f)
+        val palette = palette
+        val dominantColorFullAlpha = palette.getDominantColor(Color.BLACK)
+        val dominantColorWithAlpha =
+            ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE)
+        foregroundColor =
+            if (ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5) Color.WHITE else Color.BLACK
+        window.statusBarColor = dominantColorFullAlpha
+        window.navigationBarColor = dominantColorFullAlpha
+        actionBarTintColor = dominantColorFullAlpha
+        cardBackgroundTintColor = dominantColorWithAlpha
+        cardForegroundColor = foregroundColor
+        val mdh = MainDatabaseHandler(this)
+        list.adapter = AlbumRecyclerAdapter(this, mdh.albumsArray)
+        val menuBinding = getMenuLayoutBinding<AlbumsActivityMenuLayoutBinding>()
+        menuBinding.activity = this
     }
 }
