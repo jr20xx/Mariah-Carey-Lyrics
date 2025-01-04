@@ -24,10 +24,10 @@ public class AlbumsActivity extends ListActivity
                 foregroundColor = ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5 ? Color.WHITE : Color.BLACK;
         getWindow().setStatusBarColor(dominantColorFullAlpha);
         getWindow().setNavigationBarColor(dominantColorFullAlpha);
-        setActionBarTintColor(dominantColorFullAlpha);
-        setForegroundColor(foregroundColor);
-        setCardBackgroundTintColor(dominantColorWithAlpha);
-        setCardForegroundColor(foregroundColor);
+        actionBarTintColor = dominantColorFullAlpha;
+        cardBackgroundTintColor = dominantColorWithAlpha;
+        cardForegroundColor = foregroundColor;
+        this.foregroundColor = foregroundColor;
         MainDatabaseHandler mdh = new MainDatabaseHandler(this);
         getList().setAdapter(new AlbumRecyclerAdapter(this, mdh.getAlbumsArray()));
         AlbumsActivityMenuLayoutBinding menuBinding = getMenuLayoutBinding();

@@ -20,12 +20,11 @@ class SongsActivity : ListActivity() {
         val dominantColorFullAlpha = palette.getDominantColor(Color.BLACK)
         val dominantColorWithAlpha =
             ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE)
-        val foregroundColor =
+        foregroundColor =
             if (ColorUtils.calculateLuminance(dominantColorFullAlpha) < 0.5) Color.WHITE else Color.BLACK
         window.statusBarColor = dominantColorFullAlpha
         window.navigationBarColor = dominantColorFullAlpha
         actionBarTintColor = dominantColorFullAlpha
-        setForegroundColor(foregroundColor)
         cardBackgroundTintColor = dominantColorWithAlpha
         cardForegroundColor = foregroundColor
         navigateToHome = true
