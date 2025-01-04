@@ -18,6 +18,7 @@ import cu.lt.joe.mc.lyrics.models.Album
 import cu.lt.joe.mc.lyrics.models.Song
 import cu.lt.joe.mc.lyrics.utils.Utils
 import java.util.Objects
+import kotlin.math.hypot
 
 class LyricsActivity : BaseActivity() {
     private lateinit var binding: LyricsActivityLayoutBinding
@@ -62,7 +63,7 @@ class LyricsActivity : BaseActivity() {
         val screenCenterY = (menuExpanderView.top + menuExpanderView.bottom) / 2
         val eStartRadius = 0f
         val eEndRadius =
-            Math.hypot(dim.widthPixels.toDouble(), dim.heightPixels.toDouble()).toFloat()
+            hypot(dim.widthPixels.toDouble(), dim.heightPixels.toDouble()).toFloat()
         val expand = CircularRevealCompat.createCircularReveal(
             binding.lyricsMenuContainer,
             screenCenterX.toFloat(),
@@ -84,7 +85,7 @@ class LyricsActivity : BaseActivity() {
             val screenCenterY =
                 (binding.menuExpanderItem.top + binding.menuExpanderItem.bottom) / 2
             val eStartRadius =
-                Math.hypot(dim.widthPixels.toDouble(), dim.heightPixels.toDouble()).toFloat()
+                hypot(dim.widthPixels.toDouble(), dim.heightPixels.toDouble()).toFloat()
             val eEndRadius = 0f
             val collapse = CircularRevealCompat.createCircularReveal(
                 binding.lyricsMenuContainer,
