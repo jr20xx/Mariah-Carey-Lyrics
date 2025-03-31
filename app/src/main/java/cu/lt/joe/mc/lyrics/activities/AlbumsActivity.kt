@@ -14,7 +14,6 @@ class AlbumsActivity : ListActivity() {
         setTitle(R.string.albums_activity_label)
         val backgroundResId = R.drawable.lovers
         setBackground(backgroundResId, 0.5f, 8f)
-        val palette = palette
         val dominantColorFullAlpha = palette.getDominantColor(Color.BLACK)
         val dominantColorWithAlpha =
             ColorUtils.setAlphaComponent(dominantColorFullAlpha, ALPHA_VALUE)
