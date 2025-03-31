@@ -1,3 +1,8 @@
+[![Repository Size](https://img.shields.io/github/repo-size/jr20xx/Mariah-Carey-Lyrics?label=Repository+Size)](https://github.com/jr20xx/Mariah-Carey-Lyrics)
+[![Project Build](https://img.shields.io/github/actions/workflow/status/jr20xx/Mariah-Carey-Lyrics/build_project.yml?branch=main&label=Project%20Build)](https://github.com/jr20xx/Mariah-Carey-Lyrics/actions/workflows/build_project.yml)
+[![License](https://img.shields.io/github/license/jr20xx/Mariah-Carey-Lyrics?label=License)](https://raw.githubusercontent.com/jr20xx/Mariah-Carey-Lyrics/master/LICENSE)
+
+
 # Mariah-Carey-Lyrics
 An Android app to reunite the lyrics of Mariah Carey's songs per album.
 
